@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="./public/stylesheets/style.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <title>AJAX form</title>        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="container" id="progress_bar_cont">
+                <div class="form_progress">
+                    <div class="fl_l">Форма заполнена на</div><div id="percent_form_progress" class="fl_r"></div>
+                    <span class="clear"></span>
+                </div>
+                <div class="form_progress">
+                    <progress max="100" min="0" value="0" id="progress"></progress> 
+                </div>
+            </div>
+            <div class="container">
+                <h1>Форма с прогресс баром</h1>
+                <p id="error_submit_form" hidden>Не все поля формы заполнены правильно.</p>                
+                <p id="success_submit_form" hidden>Ваши данные были успешно отправлены.</p>
+            </div>            
+            <div class="container form_container" id="main_container">
+                <form action="https://workspace.ru/ajax/test/test.php" method="POST" id="meet">
+                    <div class="row">
+                        <label for="NAME" class="col-sm-4">Как вас зовут*</label>
+                        <div class="col-sm-4" id="message_NAME"></div>
+                        <div class="col-sm-4" id="message_LAST_NAME"></div>
+                    </div>
+                    <div class="row">
+                        <input type="text" name="NAME" class="col-sm-5 fl_l" id="NAME" placeholder="Имя"/>
+                        <input type="text" name="LAST_NAME" class="col-sm-5 fl_r" id="LAST_NAME" placeholder="Фамилия"/>
+                    </div> 
+                    <span class="clear" id="for_data"></span>                  
+                    <div class="row">
+                        <label for="EMAIL" class="col-sm-6">Электронная почта</label>
+                        <div class="col-sm-6" id="message_EMAIL"></div>
+                    </div>
+                    <div class="row">
+                        <input type="email" name="EMAIL" id="EMAIL" class="col-sm-12" placeholder="your@email.ru"/>
+                    </div>
+                    <div class="row">
+                        <label for="PHONE" class="col-sm-6">Телефон</label>
+                        <div class="col-sm-6" id="message_PHONE"></div>
+                    </div>
+                    <div class="row">
+                        <input type="tel" name="PHONE" id="PHONE" class="col-sm-12" placeholder="Ваш номер телефона"/>
+                    </div>
+                    <div class="row">
+                        <label for="TEXT" class="col-sm-6">О себе</label>
+                        <div class="col-sm-6" id="message_TEXT"></div>
+                    </div>
+                    <div class="row">
+                        <textarea class="col-sm-12" name="TEXT" id="TEXT" rows="4"></textarea>
+                    </div>
+                    <div class="row">
+                        <label for="purpose" class="col-sm-9">Чем вы собираетесь заниматься на нашем сайте?</label>
+                        <div class="col-sm-3" id="message_purpose"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                        <div class="card" id="site">
+                            <img src="./public/images/monitor.png" class="purpose_img"/>
+                            <div class="card_caption_container">
+                                <span>Разработка сайта</span>
+                            </div>                            
+                        </div>
+                        <div class="card" id="search">
+                            <img src="./public/images/PC.png" class="purpose_img"/>
+                            <div class="card_caption_container">
+                                <span>Поисковая оптимизация</span>
+                            </div>                            
+                        </div>
+                        <div class="card" id="app">
+                            <img src="./public/images/tools.png" class="purpose_img"/>
+                            <div class="card_caption_container">
+                                <span>Разработка приложения</span>
+                            </div> 
+                        </div>
+                        <div class="card" id="seo">
+                            <img src="./public/images/key.png" class="purpose_img"/>
+                            <div class="card_caption_container">
+                                <span>Контекстная реклама</span>
+                            </div>                            
+                        </div>
+                        <div class="card" id="pr">
+                            <img src="./public/images/megaphone.png" class="purpose_img"/>
+                            <div class="card_caption_container">
+                                <span>Маркетинг, SMM, PR</span>
+                            </div>                            
+                        </div>
+                        </div>
+                    </div>
+                    <hr class="clear"/>
+                    <div id="selected_purposes" style="visibility: hidden;"></div>
+                    <p id="message"></p>
+                    <div class="row">
+                        <button class="btn btn-primary" name="submit_btn" type="submit" id="submit_btn">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    <script src="./public/javascripts/script.js"></script>
+    <script src="./public/javascripts/progressBar.js"></script>
+    <script src="./public/javascripts/response.js"></script>
+    </body>
+</html>
